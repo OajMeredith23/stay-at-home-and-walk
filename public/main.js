@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 var x = document.getElementById("demo");
+var count = document.getElementById("count");
 var coords = [];
 
 function getLocation() {
@@ -53,6 +54,7 @@ function recordPosition(pos) {
                 data.push(doc.data())
                 coords.push(data)
                 x.innerHTML = data.map(loc => `<p>Lat: ${loc.lat}, Long:${loc.long}</p>`).join(' ')
+                count.innerHTML = `Count: ${data.length}`
             })
         })
 
